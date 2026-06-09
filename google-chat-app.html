@@ -234,12 +234,15 @@
   const WEBHOOK_KEY = 'gchat_webhook_url';
   const CHATURL_KEY = 'gchat_chat_url';
 
+  const DEFAULT_WEBHOOK = 'https://chat.googleapis.com/v1/spaces/AAAAQEeC0dg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=sdl0s29urgb4VRN2VrfymUtcVOR2Ab_5xBxK98QoCV8';
+  const DEFAULT_CHAT_URL = 'https://chat.google.com/room/AAAAQEeC0dg?cls=7';
+
   function getWebhookUrl() {
-    return localStorage.getItem(WEBHOOK_KEY) || '';
+    return localStorage.getItem(WEBHOOK_KEY) || DEFAULT_WEBHOOK;
   }
 
   function getChatUrl() {
-    return localStorage.getItem(CHATURL_KEY) || 'https://chat.google.com';
+    return localStorage.getItem(CHATURL_KEY) || DEFAULT_CHAT_URL;
   }
 
   // ── 起動しましたボタン ──

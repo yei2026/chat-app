@@ -276,7 +276,7 @@
 
       if (response.ok) {
         showStatus('success', '✅ 送信しました！チャット画面を開きます...');
-        setTimeout(() => { window.open(getChatUrl(), '_blank'); }, 800);
+        setTimeout(() => { window.location.href = getChatUrl(); }, 800);
       } else {
         showStatus('error', `❌ 送信失敗（エラー: ${response.status}）`);
       }

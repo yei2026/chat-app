@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Google Chat 送信アプリ</title>
-  <style>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -288,6 +292,21 @@
     window.open(url, '_blank');
   }
 
+  // ── アプリに戻ったとき常に最初の画面にリセット ──
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+      const el = document.getElementById('status');
+      el.className = 'status';
+      el.textContent = '';
+    }
+  });
+
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      location.reload();
+    }
+  });
+
   // ── ステータス表示 ──
   function showStatus(type, message) {
     const el = document.getElementById('status');
@@ -310,4 +329,17 @@
   }
 
   function closeOnOverlay(e) {
-    if (e.target === document.getElem
+    if (e.target === document.getElementById('modalOverlay')) closeSetup();
+  }
+
+  function saveSettings() {
+    const webhook = document.getElementById('webhookInput').value.trim();
+    const chatUrl = document.getElementById('chatUrlInput').value.trim();
+    if (webhook) localStorage.setItem(WEBHOOK_KEY, webhook);
+    if (chatUrl) localStorage.setItem(CHATURL_KEY, chatUrl);
+    closeSetup();
+    showStatus('success', '✅ 設定を保存しました');
+  }
+</script>
+</body>
+</html>

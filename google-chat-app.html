@@ -9,7 +9,7 @@
 
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #f0f4f8;
+      background: linear-gradient(135deg, #e0f5f1 0%, #b2ece0 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -19,29 +19,29 @@
 
     .card {
       background: white;
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 40px 30px;
       max-width: 400px;
       width: 100%;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 32px rgba(0,150,120,0.15);
       text-align: center;
     }
 
     .logo {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       margin: 0 auto 16px;
     }
 
     h1 {
       font-size: 20px;
-      color: #1a1a1a;
+      color: #00695c;
       margin-bottom: 8px;
     }
 
     .subtitle {
       font-size: 14px;
-      color: #888;
+      color: #80cbc4;
       margin-bottom: 32px;
     }
 
@@ -50,7 +50,7 @@
       width: 100%;
       padding: 18px;
       border: none;
-      border-radius: 14px;
+      border-radius: 16px;
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
@@ -64,21 +64,22 @@
     }
 
     .btn-primary {
-      background: #1a73e8;
+      background: linear-gradient(135deg, #00bfa5, #00897b);
       color: white;
+      box-shadow: 0 4px 14px rgba(0,150,120,0.35);
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
+      opacity: 0.92;
     }
 
     .btn-secondary {
-      background: #e8f0fe;
-      color: #1a73e8;
+      background: #e0f5f1;
+      color: #00796b;
     }
 
     .btn-secondary:hover {
-      background: #d2e3fc;
+      background: #b2dfdb;
     }
 
     .status {
@@ -90,8 +91,8 @@
     }
 
     .status.success {
-      background: #e6f4ea;
-      color: #137333;
+      background: #e0f5f1;
+      color: #00695c;
       display: block;
     }
 
@@ -102,15 +103,15 @@
     }
 
     .status.sending {
-      background: #e8f0fe;
-      color: #1a73e8;
+      background: #e0f5f1;
+      color: #00897b;
       display: block;
     }
 
     /* ── 設定モーダル ── */
     .setup-hint {
       font-size: 12px;
-      color: #aaa;
+      color: #b2dfdb;
       margin-top: 24px;
       cursor: pointer;
       text-decoration: underline;
@@ -176,7 +177,7 @@
     }
 
     .btn-save {
-      background: #1a73e8;
+      background: linear-gradient(135deg, #00bfa5, #00897b);
       color: white;
     }
 
@@ -190,12 +191,19 @@
 
 <div class="card">
   <!-- Google Chat アイコン風 -->
-  <svg class="logo" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="60" height="60" rx="16" fill="#1a73e8"/>
-    <path d="M15 20h30v16a4 4 0 0 1-4 4H19l-6 5v-5h-2a0 0 0 0 1 0 0V20z" fill="white" opacity="0.9"/>
-    <circle cx="22" cy="28" r="2.5" fill="#1a73e8"/>
-    <circle cx="30" cy="28" r="2.5" fill="#1a73e8"/>
-    <circle cx="38" cy="28" r="2.5" fill="#1a73e8"/>
+  <svg class="logo" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="70" height="70" rx="20" fill="url(#grad)"/>
+    <defs>
+      <linearGradient id="grad" x1="0" y1="0" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#00bfa5"/>
+        <stop offset="100%" stop-color="#00796b"/>
+      </linearGradient>
+    </defs>
+    <!-- チャットバブル -->
+    <path d="M14 22h42v22a5 5 0 0 1-5 5H22l-8 7v-7h0a0 0 0 0 1 0 0V22z" fill="white" opacity="0.95"/>
+    <circle cx="26" cy="33" r="3" fill="#00897b"/>
+    <circle cx="35" cy="33" r="3" fill="#00897b"/>
+    <circle cx="44" cy="33" r="3" fill="#00897b"/>
   </svg>
 
   <h1>Google Chat 送信</h1>
@@ -302,17 +310,4 @@
   }
 
   function closeOnOverlay(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeSetup();
-  }
-
-  function saveSettings() {
-    const webhook = document.getElementById('webhookInput').value.trim();
-    const chatUrl = document.getElementById('chatUrlInput').value.trim();
-    if (webhook) localStorage.setItem(WEBHOOK_KEY, webhook);
-    if (chatUrl) localStorage.setItem(CHATURL_KEY, chatUrl);
-    closeSetup();
-    showStatus('success', '✅ 設定を保存しました');
-  }
-</script>
-</body>
-</html>
+    if (e.target === document.getElem
